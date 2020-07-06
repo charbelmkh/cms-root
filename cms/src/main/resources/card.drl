@@ -1,0 +1,21 @@
+package KieRule;
+import  com.company.cms.model.Card;
+import  com.company.cms.model.Type
+import java.math.BigDecimal;
+
+
+rule "PRE_PAID"
+when
+cardObject : Card(type == Type.PRE_PAID);
+then
+    cardObject.setLoadingLimit(new BigDecimal(100));
+    cardObject.setTopUpLimit(new BigDecimal(200));
+end;
+
+rule "CREDIT"
+when
+cardObject : Card(type == Type.CREDIT);
+then
+cardObject.setLoadingLimit(new BigDecimal(300));
+cardObject.setTopUpLimit(new BigDecimal(400));
+end;

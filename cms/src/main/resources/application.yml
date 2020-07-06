@@ -1,5 +1,3 @@
-server:
-  port: 9191
 logging:
   level:
     root: debug
@@ -11,7 +9,7 @@ spring:
   datasource:
     username: sa
     password: sa
-    url: 'jdbc:h2:mem:auth-db;DB_CLOSE_ON_EXIT=FALSE;MODE=mysql;INIT=CREATE SCHEMA IF NOT EXISTS calendar'
+    url: 'jdbc:h2:mem:card-db;DB_CLOSE_ON_EXIT=FALSE;MODE=mysql;INIT=CREATE SCHEMA IF NOT EXISTS calendar'
     continue-on-error: false
     initialization-mode: always
   jpa:
@@ -24,3 +22,11 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:9191/oauth/check_token
+    client:
+      client-id: mobile
+      client-secret: pin
