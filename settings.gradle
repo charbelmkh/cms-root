@@ -1,0 +1,3 @@
+rootProject.name = 'cms-root'
+include ':cms'
+include ':oauth2-server'

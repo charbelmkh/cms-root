@@ -1,0 +1,24 @@
+logging:
+  level:
+    root: debug
+spring:
+  h2:
+    console:
+      enabled: false
+      #path: '/dbConsole'
+  datasource:
+    username: sa
+    password: sa
+    url: 'jdbc:h2:mem:auth-db;DB_CLOSE_ON_EXIT=FALSE;MODE=mysql;INIT=CREATE SCHEMA IF NOT EXISTS calendar'
+    continue-on-error: false
+    initialization-mode: always
+  jpa:
+    database-platform: 'org.hibernate.dialect.H2Dialect'
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
